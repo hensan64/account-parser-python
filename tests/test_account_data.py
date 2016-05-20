@@ -1,14 +1,15 @@
+
 import unittest
 
-from accountparser import account_data
+from accountparser.account_data import AccountData
 
 
 class TestAccountData(unittest.TestCase):
 
     def test_account_data(self):
 
-        data_1 = account_data.AccountData('2011', '06', '12', 'SB', 'Descriptive Text 1', 'debit', '1234.56')
-        data_2 = account_data.AccountData('2012', '07', '13', 'CB', 'Descriptive Text 2', 'credit', '2345.67')
+        data_1 = AccountData('2011', '06', '12', 'SB', 'Descriptive Text 1', 'debit', '1234.56')
+        data_2 = AccountData('2012', '07', '13', 'CB', 'Descriptive Text 2', 'credit', '2345.67')
 
         self.assertEqual(data_1.year,   '2011')
         self.assertEqual(data_1.month,  '06')
