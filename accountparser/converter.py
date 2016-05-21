@@ -4,7 +4,7 @@
 def execute(bank, in_path, out_path, prefix):
     in_file = open(in_path, 'r')
     out_file = open(out_path, 'w')
-    input = in_file.readlines
+    input = in_file.readlines()
     data_list = bank.parse(input, prefix)
     write(data_list, out_file)
     in_file.close()
@@ -22,7 +22,7 @@ def write(data_list, out_file):
                    data.prefix + "," +                                   # Category
                    data.memo + "," +                                     # Memo
                    value]                                                # Outflow + Inflow
-    out_file.puts(output)
+    out_file.writelines(output)
 
 def format_value(data):
     return data.value

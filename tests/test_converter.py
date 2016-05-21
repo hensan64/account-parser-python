@@ -17,7 +17,7 @@ class TestConverter(unittest.TestCase):
 
         out_file     = open(out_path)
         out_ref_file = open(out_ref_path)
-        self.assertEqual(out_ref_file.readlines, out_file.readlines)
+        self.assertListEqual(out_ref_file.readlines(), out_file.readlines())
 
     def test_execute_skandiabanken_chrome(self):
         in_path      = "./files/in_skandiabanken.txt"
@@ -29,4 +29,4 @@ class TestConverter(unittest.TestCase):
 
         out_file     = open(out_path)
         out_ref_file = open(out_ref_path)
-        self.assertEqual(out_ref_file.readlines, out_file.readlines)
+        self.assertListEqual(out_ref_file.readlines(), out_file.readlines())
