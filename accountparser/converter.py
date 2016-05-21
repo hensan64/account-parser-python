@@ -7,25 +7,22 @@ def execute(bank, in_path, out_path, prefix):
     input = in_file.readlines
     data_list = bank.parse(input, prefix)
     write(data_list, out_file)
-    in_file.close
-    out_file.close
+    in_file.close()
+    out_file.close()
 
 def write(data_list, out_file):
     output = ["Date,Payee,Category,Memo,Outflow,Inflow"]
-    data_list.each {|data|
-      value =
-      case data.type
-      when :credit then "," + format_value(data)
-      when :debit  then format_value(data) + ","
-      end
-      output +=
-      [ data.year + "-" + data.month + "-" + data.day + "," + # Date
-        "," +                                                 # Payee (not used)
-        data.prefix + "," +                                   # Category
-        data.memo + "," +                                     # Memo
-        value ]                                               # Outflow + Inflow
-    }
+    for data in data_list:
+        if data.type == 'credit':
+            value = "," + format_value(data)
+        else:
+            value = format_value(data) + ","
+        output += [data.year + "-" + data.month + "-" + data.day + "," + # Date
+                   "," +                                                 # Payee (not used)
+                   data.prefix + "," +                                   # Category
+                   data.memo + "," +                                     # Memo
+                   value]                                                # Outflow + Inflow
     out_file.puts(output)
 
 def format_value(data):
-    data.value.to_s
+    return data.value
