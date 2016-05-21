@@ -11,7 +11,7 @@ def execute(bank, in_path, out_path, prefix):
     out_file.close()
 
 def write(data_list, out_file):
-    output = ["Date,Payee,Category,Memo,Outflow,Inflow"]
+    output = ['Date,Payee,Category,Memo,Outflow,Inflow\n']
     for data in data_list:
         if data.type == 'credit':
             value = "," + format_value(data)
@@ -21,7 +21,8 @@ def write(data_list, out_file):
                    "," +                                                 # Payee (not used)
                    data.prefix + "," +                                   # Category
                    data.memo + "," +                                     # Memo
-                   value]                                                # Outflow + Inflow
+                   value +                                               # Outflow + Inflow
+                   '\n']                                                 # writelines does not add line separators
     out_file.writelines(output)
 
 def format_value(data):
