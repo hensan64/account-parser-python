@@ -1,7 +1,7 @@
 
 import unittest
 
-from accountparser.skandiabanken_chrome import SkandiabankenChrome
+from accountparser.skandiabanken_chrome import parse
  
 class TcSkandiabankenChrome(unittest.TestCase):
  
@@ -9,7 +9,7 @@ class TcSkandiabankenChrome(unittest.TestCase):
     input = ['2011-06-12\tDescriptive Text 1\t-1234,56\t12345,67',
              '2012-07-13\tDescriptive Text 2\t2345,67\t23456,78']
     prefix = "SB"
-    output = SkandiabankenChrome().parse(input, prefix)
+    output = parse(input, prefix)
 
     data_1 = output[0]
     data_2 = output[1]
