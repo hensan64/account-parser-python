@@ -1,10 +1,10 @@
-
 # Skandiabanken Chrome parser
 
 import re
 
 from accountparser.account_data import AccountData
 from accountparser.lib import isBlank, format_memo, format_value
+
 
 def parse(lines, prefix):
     data_list = []

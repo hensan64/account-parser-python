@@ -1,4 +1,3 @@
-
 # Convert input to output file of type 'bank'
 
 def execute(bank, in_path, out_path, prefix):
@@ -10,6 +9,7 @@ def execute(bank, in_path, out_path, prefix):
     in_file.close()
     out_file.close()
 
+
 def write(data_list, out_file):
     output = ['Date,Payee,Category,Memo,Outflow,Inflow\n']
     for data in data_list:
@@ -17,10 +17,10 @@ def write(data_list, out_file):
             value = "," + data.value
         else:
             value = data.value + ","
-        output += [data.year + "-" + data.month + "-" + data.day + "," + # Date
-                   "," +                                                 # Payee (not used)
-                   data.prefix + "," +                                   # Category
-                   data.memo + "," +                                     # Memo
-                   value +                                               # Outflow + Inflow
-                   '\n']                                                 # writelines does not add line separators
+        output += [data.year + "-" + data.month + "-" + data.day + "," +  # Date
+                   "," +  # Payee (not used)
+                   data.prefix + "," +  # Category
+                   data.memo + "," +  # Memo
+                   value +  # Outflow + Inflow
+                   '\n']  # writelines does not add line separators
     out_file.writelines(output)

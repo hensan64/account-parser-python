@@ -1,7 +1,7 @@
-
 # Support library
 
 import re
+
 
 def isBlank(line):
     pattern = re.compile(r'^\s*$')
@@ -9,6 +9,7 @@ def isBlank(line):
         return True
     else:
         return False
+
 
 def format_memo(string):
     string = re.sub(r',', r' ', string)

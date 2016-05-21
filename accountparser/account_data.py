@@ -1,4 +1,3 @@
-
 # Account data
 
 # -----------
@@ -13,7 +12,6 @@
 # value:  '1234.56'
 
 class AccountData():
-
     def __init__(self, year, month, day, prefix, memo, type, value):
         self.year = year
         self.month = month

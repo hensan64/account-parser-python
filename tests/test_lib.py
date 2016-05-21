@@ -4,7 +4,6 @@ from accountparser import lib
 
 
 class TestLib(unittest.TestCase):
- 
     def test_blank(self):
         self.assertEqual(True, lib.isBlank(' \n'))
         self.assertEqual(True, lib.isBlank('\n'))

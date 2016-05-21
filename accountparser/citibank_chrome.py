@@ -1,10 +1,10 @@
-
 # Citibank Chrome parser
 
 import re
 
 from accountparser.account_data import AccountData
 from accountparser.lib import isBlank, format_memo, format_value
+
 
 def parse(lines, prefix):
     data_list = []
@@ -16,7 +16,7 @@ def parse(lines, prefix):
         if match:
             if match.group('sign') == '-':
                 type = 'credit'
-            else :
+            else:
                 type = 'debit'
             data_list += [AccountData(match.group('year'),
                                       match.group('month'),
