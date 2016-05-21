@@ -1,2 +1,5 @@
 /.idea
 /files/Citibank.csv
+/files/Skandiabanken.csv
+/tests/files/Citibank.csv
+/tests/files/Skandiabanken.csv
