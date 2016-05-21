@@ -1,17 +1,25 @@
 
 # Main script
 
-import sys
+from sys import argv
 
 from accountparser.citibank_chrome import CitibankChrome
 from accountparser.converter import execute
 from accountparser.skandiabanken_chrome import SkandiabankenChrome
 
-if len(sys.argv) != 2: raise RuntimeError('Faulty command line arguments: Should be: python account_parser.py citibank|skandiabanken')
+in_file_citibank  = './files/in_citibank.txt'
+out_file_citibank = './files/Citibank.csv'
+prefix_citibank   = 'CB'
 
-if sys.argv(1) == 'citibank':
-    execute(CitibankChrome, '../files/in_citibank.txt', '../files/Citibank.csv', "CB")
-elif sys.argv(1) == 'skandiabanken':
-    execute(SkandiabankenChrome, '../files/in_skandiabanken.txt', '../files/Skandiabanken.csv', 'SB')
+in_file_skandiabanken  = './files/in_skandiabanken.txt'
+out_file_skandiabanken = './files/Skandiabanken.csv'
+prefix_skandiabanken   = 'SB'
+
+if len(argv) != 2: raise RuntimeError('Faulty command line arguments: Should be: python account_parser.py citibank|skandiabanken')
+
+if argv[1] == 'citibank':
+    execute(CitibankChrome, in_file_citibank, out_file_citibank, prefix_citibank)
+elif argv[1] == 'skandiabanken':
+    execute(SkandiabankenChrome, in_file_skandiabanken, out_file_skandiabanken, prefix_skandiabanken)
 else:
     raise RuntimeError('Faulty bank argument: Should be citibank|skandiabanken')
